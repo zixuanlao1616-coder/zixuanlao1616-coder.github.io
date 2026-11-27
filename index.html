@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chris (Zixuan) Lao</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<style>
+/* Layout: sticky top bar, illustrated mountain banner with a round portrait, alternating light and tinted bands,
+   card grid for projects. Structure follows a clean academic-homepage pattern; artwork is original. */
+:root {
+  --bg: #FFFFFF;
+  --alt: #F5F7FA;
+  --fg: #333A42;
+  --head: #2C3E50;
+  --muted: #66727F;
+  --link: #2F7BC4;
+  --line: #E1E6EC;
+  --card: #FFFFFF;
+  --nav-bg: rgba(255, 255, 255, 0.94);
+  --pill: #DCE9F7;
+  --pill-fg: #234E7D;
+  --sky: #EAF0F5;
+  --sun: #F3DDBD;
+  --ridge1: #C5D1DC;
+  --fog: #F3F6F9;
+  --ridge2: #A3B4C4;
+  --ridge3: #7C92A6;
+  --pine: #4F6479;
+  --ink2: #4B6178;
+  --c1: #F4DAD5;
+  --c2: #E4DEF1;
+  --c3: #DCE9DA;
+  --c4: #DAE6F3;
+  --teal: #0A7771;
+  --shadow: 0 1px 2px rgba(20, 30, 45, 0.06), 0 6px 18px rgba(20, 30, 45, 0.07);
+  --font: "Inter", -apple-system, "system-ui", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F141A; --alt: #141B23; --fg: #CBD3DC; --head: #E8EEF4; --muted: #8E9BAA; --link: #6DB3F2; --line: #26303B;
+    --card: #18212B; --nav-bg: rgba(15, 20, 26, 0.94); --pill: #1F3550; --pill-fg: #A9CCF2;
+    --sky: #131C26; --sun: #6C5E4A; --ridge1: #26354A; --fog: #1B2736; --ridge2: #1F2D3F; --ridge3: #172230; --pine: #101A25;
+    --ink2: #9FB4C8; --c1: #3B2B2E; --c2: #2F2B42; --c3: #263629; --c4: #25354A; --teal: #4CCBC1;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 18px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F141A; --alt: #141B23; --fg: #CBD3DC; --head: #E8EEF4; --muted: #8E9BAA; --link: #6DB3F2; --line: #26303B;
+  --card: #18212B; --nav-bg: rgba(15, 20, 26, 0.94); --pill: #1F3550; --pill-fg: #A9CCF2;
+  --sky: #131C26; --sun: #6C5E4A; --ridge1: #26354A; --fog: #1B2736; --ridge2: #1F2D3F; --ridge3: #172230; --pine: #101A25;
+  --ink2: #9FB4C8; --c1: #3B2B2E; --c2: #2F2B42; --c3: #263629; --c4: #25354A; --teal: #4CCBC1;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 18px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; line-height: 1.75; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--nav-bg); z-index: 30; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 3px; }
+h1, h2, h3 { color: var(--head); font-weight: 700; margin: 0; text-wrap: balance; }
+p { margin: 0 0 16px; }
+.in { width: 100%; max-width: 1132px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+header.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: var(--nav-bg); backdrop-filter: blur(8px); box-shadow: 0 1px 8px rgba(20, 30, 45, 0.1); }
+.bar .in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 28px; padding-block: 12px; }
+.brand { font-weight: 600; color: var(--head); font-size: 1rem; }
+.brand:hover { text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 22px; font-size: 0.93rem; }
+nav a { color: var(--fg); }
+nav a.pill { background: var(--pill); color: var(--pill-fg); padding: 4px 14px; border-radius: 999px; font-weight: 500; line-height: 1.5; }
+
+.hero { position: relative; overflow: hidden; text-align: center; min-height: 380px; color: #fff; background: linear-gradient(rgba(6, 10, 16, 0.38), rgba(6, 10, 16, 0.62)), url("banner.jpg") center / cover no-repeat #0A0E14; }
+.hero .in { position: relative; padding-block: 48px 56px; }
+.portrait { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: var(--shadow); display: block; margin: 0 auto 16px; background: var(--alt); }
+.hero h1 { font-size: clamp(1.7rem, 4vw, 2rem); line-height: 1.3; color: #fff; }
+.hero .role { color: rgba(255, 255, 255, 0.82); font-size: 0.98rem; margin-top: 2px; }
+.icons { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
+.ic { width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.55); display: grid; place-items: center; }
+.ic svg { width: 15px; height: 15px; fill: #fff; }
+.ic:hover { background: #fff; text-decoration: none; }
+.ic:hover svg { fill: #2C3E50; }
+
+.band { padding-block: 72px; }
+.band.alt { background: var(--alt); }
+.band h2 { font-size: clamp(1.7rem, 3.4vw, 2.2rem); line-height: 1.25; padding-bottom: 16px; margin-bottom: 32px; position: relative; }
+.band h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 84px; height: 3px; background: var(--head); border-radius: 2px; }
+.band h3 { font-size: 1.3rem; margin: 36px 0 14px; }
+.band h3:first-of-type { margin-top: 0; }
+.text { max-width: 820px; }
+
+.item { margin: 0 0 18px; }
+.item .t { font-weight: 600; color: var(--head); }
+.item .m { color: var(--muted); }
+.item ul { margin: 6px 0 0; padding-left: 22px; }
+.item li { margin: 2px 0; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 24px; }
+.card { background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; min-width: 0; }
+.card svg { display: block; width: 100%; height: auto; }
+.card .cb { padding: 18px 18px 22px; display: flex; flex-direction: column; gap: 8px; }
+.card h3 { font-size: 1.05rem; line-height: 1.4; margin: 0; }
+.card p { font-size: 0.9rem; line-height: 1.6; margin: 0; color: var(--fg); }
+.card img.cover { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #fff; }
+.card img.cover.fit { object-fit: contain; padding: 8px; }
+.card p.credit { font-size: 0.74rem; color: var(--muted); margin-top: 2px; }
+.card.feature { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); max-width: 860px; }
+.card.feature img.cover { height: 100%; aspect-ratio: auto; min-height: 220px; }
+.card.feature .cb { justify-content: center; padding: 24px; }
+@media (max-width: 720px) {
+  .card.feature { grid-template-columns: minmax(0, 1fr); }
+  .card.feature img.cover { height: auto; aspect-ratio: 16 / 10; min-height: 0; }
+}
+.more { font-size: 0.88rem; font-weight: 500; margin-top: 2px; }
+.card h3 a { color: var(--head); }
+.card h3 a:hover { color: var(--link); text-decoration: none; }
+.tags { font-size: 0.78rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 2px 8px; }
+
+.pubs { margin: 0 0 8px; padding-left: 22px; }
+.pubs li { margin: 0 0 14px; padding-left: 4px; }
+.pubs b { color: var(--head); font-weight: 600; }
+.pubs i { font-style: italic; }
+.badge { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em; border-radius: 999px; padding: 1px 9px; margin-left: 6px; white-space: nowrap; background: var(--pill); color: var(--pill-fg); }
+.badge.rev { background: #F8E7CF; color: #8A4B00; }
+.badge.wip { background: var(--line); color: var(--muted); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .badge.rev { background: #3F2E14; color: #F0B766; } }
+:root[data-theme="dark"] .badge.rev { background: #3F2E14; color: #F0B766; }
+
+.skills p { margin: 0 0 8px; }
+.skills b { color: var(--head); font-weight: 600; }
+
+footer .in { padding-block: 40px 56px; text-align: center; color: var(--muted); font-size: 0.9rem; }
+footer .icons { margin: 0 0 16px; }
+
+footer .ic { background: transparent; border-color: var(--line); }
+footer .ic svg { fill: var(--muted); }
+footer .ic:hover { background: var(--link); border-color: var(--link); }
+footer .ic:hover svg { fill: #fff; }
+
+@media (max-width: 720px) {
+  .band { padding-block: 48px; }
+  .hero { min-height: 340px; }
+  .hero .in { padding-block: 36px 44px; }
+  .bar .in { justify-content: center; }
+  nav { justify-content: center; gap: 2px 16px; font-size: 0.88rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ic { transition: background 0.15s; }
+}
+</style>
+</head>
+<body>
+
+
+<header class="bar">
+  <div class="in">
+    <a class="brand" href="#top">Chris (Zixuan) Lao</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#beyond">Beyond Research</a>
+      <a class="pill" href="Chris_Lao_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="in">
+    <img class="portrait" src="photo.jpg" alt="Portrait of Chris Lao" width="140" height="140">
+    <h1>Chris (Zixuan) Lao</h1>
+    <div class="role">Research Assistant &middot; Toyota Research Institute</div>
+    <div class="icons">
+      <a class="ic" href="https://scholar.google.com/citations?user=BbmfJNEAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 9.2v4c0 1.7 2.7 3.8 6 3.8s6-2.1 6-3.8v-4l-6 3.3-6-3.3z"/></svg></a>
+      <a class="ic" href="https://github.com/zixuanlao1616-coder" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      <a class="ic" href="https://www.linkedin.com/in/christopher-lao" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg></a>
+      <a class="ic" href="mailto:zixuanlao1616@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.4 2L12 12.6 19.6 7H4.4zM4 9.4V17h16V9.4l-8 5.8-8-5.8z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="band" id="about">
+    <div class="in">
+      <h2>About</h2>
+      <div class="text">
+        <p>Hi! I am Chris, a research assistant at Toyota Research Institute, where I work on human&ndash;machine interaction and AI-assisted driving. I study how people respond socially and emotionally to embodied agents (robots, AI assistants and avatars) in immersive and mixed reality environments, and how context shapes those responses.</p>
+        <p>My research asks whether people feel about an AI or a robot the way they feel about a person, and whether a machine can be designed to earn that response. I work with physiological measures such as electrodermal activity, heart rate variability and eye tracking, alongside mixed-effects modeling, interviews and controlled studies in driving simulators and VR. I am also interested in how machines can reciprocate emotion and help people regulate their own.</p>
+        <p>Before TRI, I studied how people form social presence with photorealistic avatars at Apple, did organizational behavior research at NYU Stern, and worked in consulting at Deloitte and BCG.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="education">
+    <div class="in">
+      <h2>Education</h2>
+      <div class="item"><div><span class="t">M.S. in Behavioral and Decision Sciences</span> <span class="m">| 2023 &ndash; 2024 | University of Pennsylvania, Philadelphia, PA</span></div></div>
+      <div class="item"><div><span class="t">B.Sc. (Hons.) with High Distinction in Psychology and Economics</span> <span class="m">| 2019 &ndash; 2023 | University of Toronto, Toronto, ON</span></div></div>
+    </div>
+  </section>
+
+  <section class="band" id="experience">
+    <div class="in">
+      <h2>Experience</h2>
+      <h3>Research</h3>
+      <div class="item">
+        <div><span class="t">Toyota Research Institute</span> <span class="m">| 2025 &ndash; 2026 | Los Altos, CA</span></div>
+        <ul>
+          <li>Human Interactive Driving / Robotics, advised by Dr. Tiffany L. Chen.</li>
+          <li>Designed and ran end-to-end mixed-methods studies (behavioral experiments, physiological sensing, interviews, statistical analysis) to develop and evaluate AI-assisted driving systems in XR.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div><span class="t">Research Coordinator</span> <span class="m">| 2025 | Apple Inc., Sunnyvale, CA</span></div>
+        <ul>
+          <li>Vision Products Group, human&ndash;avatar interaction in mixed reality communication, advised by Jonathan Leventhal.</li>
+          <li>Led large-scale usability studies of Vision Pro&rsquo;s Persona, using interviews, surveys, contextual inquiry and thematic analysis to characterize how people establish social presence with photorealistic avatars.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div><span class="t">Research Assistant</span> <span class="m">| 2024 &ndash; 2025 | NYU Stern School of Business, New York, NY</span></div>
+        <ul>
+          <li>Organizational behavior and human decision-making research, advised by Dr. Julia Hur.</li>
+          <li>Supported empirical studies through literature reviews, survey design and quantitative data visualization.</li>
+        </ul>
+      </div>
+      <h3>Industry</h3>
+      <div class="item">
+        <div><span class="t">Research Consultant</span> <span class="m">| 2023 &ndash; 2024 | Deloitte Consulting LLP, Philadelphia, PA</span></div>
+        <ul><li>Designed and evaluated user research strategies for digital health products, using experiments and A/B testing to improve patient adoption.</li></ul>
+      </div>
+      <div class="item">
+        <div><span class="t">Research Analyst</span> <span class="m">| 2022 &ndash; 2023 | Boston Consulting Group, Shanghai, China</span></div>
+        <ul><li>Ran market and user research with conjoint analysis, customer journey mapping and competitive analysis.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="projects">
+    <div class="in">
+      <h2>Selected Projects</h2>
+      <h3>Research projects</h3>
+      <div class="cards">
+
+        <article class="card">
+          <img class="cover" style="object-position: center center" src="img-av.jpg" alt="Driving simulator view of a city street with a car ahead and a countdown to pass the light" loading="lazy">
+          <div class="cb">
+            <h3>Who Are You Honking At? Anger Toward Autonomous Vehicles</h3>
+            <div class="tags"><span>#Emotion</span><span>#DrivingSimulator</span><span>#Psychophysiology</span></div>
+            <p>A two-study design (online validation, N&nbsp;&asymp;&nbsp;300, and a driving simulator) that separates physiological arousal from behavioral anger expression, with an OSF pre-registration.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="cover" style="object-position: left top" src="img-cuelab.jpg" alt="The Cue Lab interface with an avatar, a chat window and agent cue settings" loading="lazy">
+          <div class="cb">
+            <h3>Cue Lab: Evidence-Grounded Prototyping of Embodied AI Agent Cues</h3>
+            <div class="tags"><span>#HRI</span><span>#EmbodiedAgents</span><span>#VisionPro</span></div>
+            <p>A web platform, built with Jean Costa, that links HRI and HCI literature to configurable agent behaviors such as gaze and nodding, for studying which cues make an agent&rsquo;s emotion read as genuine.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <svg viewBox="0 0 320 200" role="img" aria-label="Illustration of a race track with a racing line, an eye and sound waves"><rect width="320" height="200" style="fill: var(--c3)"/>
+            <ellipse cx="160" cy="108" rx="112" ry="54" fill="none" style="stroke: var(--ink2)" stroke-width="16"/>
+            <ellipse cx="160" cy="108" rx="112" ry="54" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="7 7"/>
+            <circle cx="262" cy="130" r="8" style="fill: var(--teal)"/>
+            <path d="M24 34 q22 -22 44 0 q-22 22 -44 0z" fill="#fff" style="stroke: var(--ink2)" stroke-width="3"/><circle cx="46" cy="34" r="6" style="fill: var(--ink2)"/>
+            <g fill="none" style="stroke: var(--teal)" stroke-width="3" stroke-linecap="round"><path d="M262 28 q10 8 0 16"/><path d="M272 22 q16 14 0 28"/><path d="M282 16 q22 20 0 40"/></g>
+          </svg>
+          <div class="cb">
+            <h3>Visual and Audio Cues for Performance Driving</h3>
+            <div class="tags"><span>#XR</span><span>#Coaching</span><span>#MultimodalCues</span></div>
+            <p>Visual cues alone left lap times unchanged. Interviews pointed to audio, and a validation study found that visual and audio cues together were needed.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="cover" style="object-position: 72% center" src="img-persona.jpg" alt="A Vision Pro Persona avatar shown beside the Persona settings window" loading="lazy">
+          <div class="cb">
+            <h3>Social Presence with Persona Avatars</h3>
+            <div class="tags"><span>#MixedReality</span><span>#UsabilityResearch</span><span>#Apple</span></div>
+            <p>Seven months at Apple studying how people establish social presence with Vision Pro&rsquo;s photorealistic Persona avatars, across more than 100 usability sessions.</p>
+          </div>
+        </article>
+
+      </div>
+      <h3>Published studies</h3>
+      <div class="cards">
+        <article class="card">
+          <img class="cover fit" src="fig-vrw.jpg" alt="Photos of the three display panels and the driving and search tasks seen through them" loading="lazy">
+          <div class="cb">
+            <h3><a href="https://ieeexplore.ieee.org/abstract/document/11489860/" target="_blank" rel="noopener">Impact of Residual Transparency in Switchable-Opacity Displays for Video Passthrough Driving</a></h3>
+            <div class="tags"><span>#VideoPassthrough</span><span>#HumanFactors</span><span>#IEEEVRW</span></div>
+            <p>A 17-person study of what happens when a display meant to be opaque still lets some light through. The double image raised eye strain and workload without hurting driving or search performance, and a diffuser layer largely removed the problem.</p>
+            <p class="credit">Image: Fig. 1 of the paper. &copy; 2026 IEEE.</p>
+            <a class="more" href="https://ieeexplore.ieee.org/abstract/document/11489860/" target="_blank" rel="noopener">Read paper &rarr;</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="cover photo" src="fig-etra.jpg" alt="Simulator view of a curve with a red gaze target on the inner edge" loading="lazy">
+          <div class="cb">
+            <h3><a href="https://doi.org/10.1145/3797246.3803042" target="_blank" rel="noopener">Do Expert Gaze Patterns Causally Improve Lap Times in Circuit Driving?</a></h3>
+            <div class="tags"><span>#EyeTracking</span><span>#DriverTraining</span><span>#ETRA</span></div>
+            <p>60 drivers in a simulator were asked to follow gaze targets replayed from real skilled or novice drivers. Drivers complied, but lap time and vehicle control did not improve beyond what practice alone gave, so gaze guidance by itself was not enough.</p>
+            <p class="credit">Image: Fig. 1 of the paper (CC BY-NC-ND 4.0).</p>
+            <a class="more" href="https://doi.org/10.1145/3797246.3803042" target="_blank" rel="noopener">Read paper &rarr;</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="cover photo" src="fig-autoui.jpg" alt="The driving simulator cockpit with a wide monitor, steering wheel and pedals" loading="lazy">
+          <div class="cb">
+            <h3><a href="https://dl.acm.org/doi/full/10.1145/3828158.3838222" target="_blank" rel="noopener">Toward Stress-Adaptive AI Coaching: Understanding Driver Stress Under Time Pressure</a></h3>
+            <div class="tags"><span>#Stress</span><span>#Psychophysiology</span><span>#AutomotiveUI</span></div>
+            <p>Three levels of time pressure in a driving simulator, with physiological sensing and retrospective stress annotations. How stressed drivers felt predicted lap time better than the timer condition did, and pupil measures tracked it most closely.</p>
+            <p class="credit">Image: Fig. 1(a) of the paper (CC BY 4.0).</p>
+            <a class="more" href="https://dl.acm.org/doi/full/10.1145/3828158.3838222" target="_blank" rel="noopener">Read paper &rarr;</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="cover fit" src="fig-neurips.jpg" alt="Diagram of the skill-conditioned hierarchical coaching policy" loading="lazy">
+          <div class="cb">
+            <h3><a href="https://neurips.cc/virtual/2026/161985" target="_blank" rel="noopener">From Skill Representations to Coaching Decisions</a></h3>
+            <div class="tags"><span>#AICoaching</span><span>#Representations</span><span>#NeurIPSWorkshop</span></div>
+            <p>A coaching policy conditioned on a learned profile of a driver&rsquo;s skill. The profile cut coaching-rate error by 46%, and in a 36-person study, coaching built on a matched profile gave drivers better perceived calibration than a mismatched one.</p>
+            <p class="credit">Image: Fig. 1 of the paper.</p>
+            <a class="more" href="https://neurips.cc/virtual/2026/161985" target="_blank" rel="noopener">Read paper &rarr;</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="cover fit" src="fig-lak.jpg" alt="The shared review interface with video, telemetry and a conversation transcript" loading="lazy">
+          <div class="cb">
+            <h3>From Evidence to Interaction: AI-Supported Debriefing</h3>
+            <div class="tags"><span>#LearningAnalytics</span><span>#ConversationalAI</span><span>#LAK</span></div>
+            <p>MATE is a shared review tool with synchronized video, telemetry, event markers and a conversational AI. Across 20 debriefings with one instructor and ten trainees, the instructor used it in every review, while nine of the ten trainees never did.</p>
+            <p class="credit">Image: Fig. 1(b) of the paper.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="publications">
+    <div class="in">
+      <h2>Publications</h2>
+      <ul class="pubs">
+        <li>Yasuda, H., Weiss, E., <b>Lao, Z.</b>, &amp; Srivatsa, S. (2026). <a href="https://ieeexplore.ieee.org/abstract/document/11489860/" target="_blank" rel="noopener">Impact of residual transparency in switchable-opacity displays for video passthrough driving</a>. <i>2026 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW)</i>, 1271&ndash;1272.</li>
+        <li>Yasuda, H., Schrum, M., <b>Lao, Z.</b>, Srivatsa, S., &amp; Chen, T. L. (2026). <a href="https://doi.org/10.1145/3797246.3803042" target="_blank" rel="noopener">Do expert gaze patterns causally improve lap times in circuit driving?</a> <i>Proceedings of the 2026 Symposium on Eye Tracking Research and Applications (ETRA)</i>, 1&ndash;6.</li>
+        <li>Shimizu, Y., <b>Lao, Z.</b>, Srivatsa, S., Costa, J., &amp; Chen, T. L. (2026). <a href="https://dl.acm.org/doi/full/10.1145/3828158.3838222" target="_blank" rel="noopener">Toward stress-adaptive AI coaching: Understanding driver stress under time pressure</a>. <i>Proceedings of the 18th International Conference on Automotive User Interfaces and Interactive Vehicular Applications (AutomotiveUI &rsquo;26)</i>.</li>
+        <li>Schrum, M. L., Gopinath, D. E., <b>Lao, Z.</b>, Srivatsa, S., Rosman, G., &amp; Chen, T. L. (2026). <a href="https://neurips.cc/virtual/2026/161985" target="_blank" rel="noopener">From skill representations to coaching decisions: A skill-conditioned policy for real-time instruction</a>. <i>NeurIPS 2026 Workshop on From Pretrained Representations to Acting Agents (PTA)</i>.</li>
+        <li>Costa, J., <b>Lao, Z.</b>, Srivatsa, S., Yasuda, H., &amp; Chen, T. L. (2027). From evidence to interaction: How AI-supported performance evidence enters instructor-led debriefing. <i>Journal of Learning Analytics</i> (LAK 2027 Proceedings, Short Research Paper). <span class="badge">Accepted</span></li>
+        <li>Schrum, M., Gopinath, D., Tofig, S., <b>Lao, Z.</b>, Srivatsa, S., Rosman, G., &amp; Chen, T. L. (2026). Coaching the learner, not the lap: Skill-conditioned AI coaching for real-time verbal instruction. <i>2027 ACM/IEEE International Conference on Human-Robot Interaction (HRI &rsquo;27)</i>. <span class="badge">Accepted</span></li>
+      </ul>
+      <h3>Under review</h3>
+      <ul class="pubs">
+        <li>Schrum, M., Yasuda, H., <b>Lao, Z.</b>, Srivatsa, S., Chau, S., &amp; Chen, T. L. (2026). Linking gaze and control: Visual and verbal guidance for high-performance driving. <i>2027 IEEE Intelligent Vehicles Symposium (IV &rsquo;27)</i>. <span class="badge rev">Under review</span></li>
+      </ul>
+      <h3>Working papers</h3>
+      <ul class="pubs">
+        <li><b>Lao, Z.</b> (2026). <i>Who are you honking at? Agency without audience: anger expression toward humans, autonomous agents, and occupied autonomous agents.</i> <span class="badge wip">In progress</span></li>
+        <li>Yasuda, H., &amp; <b>Lao, Z.</b> (2026). Investigating the effects of augmented reality see-through displays on driving performance and visual attention. <span class="badge wip">In progress</span></li>
+        <li>Costa, J., &amp; <b>Lao, Z.</b> (2026). Glance: Adding minimal physical agency to smartphone-based AI assistants. <span class="badge wip">In progress</span></li>
+        <li>Tomassetti, O., Weiss, E., &amp; <b>Lao, Z.</b> (2026). Investigating human motor adaptation and physical effort in human&ndash;robot interaction. <span class="badge wip">In progress</span></li>
+        <li><b>Lao, Z.</b>, &amp; Costa, J. (2026). Cue Lab: Evidence-grounded prototyping of embodied AI agent cues for HRI research. <span class="badge wip">In progress</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band alt" id="skills">
+    <div class="in">
+      <h2>Skills &amp; Awards</h2>
+      <div class="skills text">
+        <p><b>Research methods:</b> experimental design, psychophysiological measurement (EDA, HR/HRV), eye tracking, behavioral coding, thematic analysis, survey design, A/B testing, study recruitment and operation</p>
+        <p><b>Statistics:</b> R, Stata, linear mixed-effects models, ANOVA, power analysis</p>
+        <p><b>Programming:</b> Python, PyTorch, SQL, C, Linux</p>
+        <p><b>Sensors:</b> Tobii, Emotibit, Pupil Labs, Polar, Plotjuggler</p>
+        <p><b>Tools:</b> Qualtrics, UserInterview, Jira, Adobe Suite, Prolific</p>
+        <p><b>Awards:</b> Drew Thompson Scholarship, University of Trinity College (2020); University of Toronto Scholar award (2019)</p>
+      </div>
+    </div>
+  </section>
+  <section class="band" id="beyond">
+    <div class="in">
+      <h2>Beyond Research</h2>
+      <article class="card feature">
+        <img class="cover" style="object-position: center 62%" src="img-concert.jpg" alt="Black and white photo of a concert stage with a singer, a band and large projected portraits" loading="lazy">
+        <div class="cb">
+          <h3><a href="https://chrislao.myportfolio.com/" target="_blank" rel="noopener">Music and Landscape Photography</a></h3>
+          <p>I am a music and landscape photographer. My portfolio collects that work.</p>
+          <a class="more" href="https://chrislao.myportfolio.com/" target="_blank" rel="noopener">Visit my portfolio &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="in">
+    <div class="icons">
+      <a class="ic" href="https://scholar.google.com/citations?user=BbmfJNEAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 9.2v4c0 1.7 2.7 3.8 6 3.8s6-2.1 6-3.8v-4l-6 3.3-6-3.3z"/></svg></a>
+      <a class="ic" href="https://github.com/zixuanlao1616-coder" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      <a class="ic" href="https://www.linkedin.com/in/christopher-lao" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg></a>
+      <a class="ic" href="mailto:zixuanlao1616@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.4 2L12 12.6 19.6 7H4.4zM4 9.4V17h16V9.4l-8 5.8-8-5.8z"/></svg></a>
+    </div>
+    <div>zixuanlao1616@gmail.com</div>
+    <div>&copy; 2026 Chris (Zixuan) Lao</div>
+  </div>
+</footer>
+
+</body>
+</html>
